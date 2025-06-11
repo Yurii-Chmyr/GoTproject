@@ -1,0 +1,17 @@
+@keyframes pulseWhite {
+  0% {
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 15px 5px rgb(255, 255, 255);
+  }
+  100% {
+    box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.7);
+  }
+}
+
+.pulsing-white-border {
+  border: 2px solid rgba(255, 255, 255, 0.8); /* золотиста рамка */
+  animation: pulseWhite 2s infinite ease-in-out;
+  border-radius: 10px; /* щоб рамка була з заокругленими кутами */
+}

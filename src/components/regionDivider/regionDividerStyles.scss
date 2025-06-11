@@ -1,0 +1,43 @@
+.region-divider {
+  background-color: #f8f9fa;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.region-divider-img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+.region-divider-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.region-divider-text p {
+  font-size: 1rem;
+  color: #555;
+}
+
+@keyframes pulseCustom {
+  0% {
+    box-shadow: 0 0 5px 2px var(--glow-color, rgba(255, 255, 255, 0.7));
+  }
+  50% {
+    box-shadow: 0 0 15px 5px var(--glow-color, rgb(255, 255, 255));
+  }
+  100% {
+    box-shadow: 0 0 5px 2px var(--glow-color, rgba(255, 255, 255, 0.7));
+  }
+}
+
+.pulsing-custom-border {
+  border: 2px solid var(--glow-color, rgba(255, 255, 255, 0.8));
+  animation: pulseCustom 2s infinite ease-in-out;
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease;
+}
