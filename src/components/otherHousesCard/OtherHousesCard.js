@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import ThronesService from '../../services/ThronesService';
 import RegionDivider from '../regionDivider/RegionDivider';
+import { useFavorites } from '../../services/FavoritesContext';
+import FavoriteButton from '../favButton/FavButton';
+import { getHouseImage } from '../housesImages/HousesImages';
 
 const EXCLUDE_HOUSES = [
   'House Stark of Winterfell',
@@ -16,7 +19,8 @@ const EXCLUDE_HOUSES = [
   'House Bolton of the Dreadfort',
   'House Frey of the Twins',
   'House Mormont of Bear Island',
-  'House Royce of Runestone'
+  'House Royce of Runestone',
+  'House Slynt of Harrenhal'
 ];
 
 const PAGE_SIZE = 50;
@@ -25,6 +29,7 @@ const OtherHousesByRegion = () => {
   const [byRegion, setByRegion] = useState({});
   const [visibleCounts, setVisibleCounts] = useState({});
   const [searchTerm, setSearchTerm] = useState('');
+  const { isFavoriteHouse, toggleFavoriteHouse } = useFavorites();
 
   useEffect(() => {
     const service = new ThronesService();
@@ -59,71 +64,81 @@ const OtherHousesByRegion = () => {
     }));
   };
 
-const sortedRegions = Object.entries(byRegion).sort(([a], [b]) => {
-  if (a === 'No region') return 1;
-  if (b === 'No region') return -1;
-  if (a === 'Beyond the Wall') return 2;
-  if (b === 'Beyond the Wall') return -2;
+  const sortedRegions = Object.entries(byRegion).sort(([a], [b]) => {
+    if (a === 'No region') return 1;
+    if (b === 'No region') return -1;
+    if (a === 'Beyond the Wall') return 2;
+    if (b === 'Beyond the Wall') return -2;
+    return a.localeCompare(b);
+  });
 
-  return a.localeCompare(b);
-});
+  return (
+    <Container className="py-4">
+      <div className="mb-4 text-center">
+        <input
+          type="text"
+          placeholder="Search houses..."
+          className="form-control w-50 mx-auto"
+          value={searchTerm}
+          onChange={e => setSearchTerm(e.target.value.toLowerCase())}
+        />
+      </div>
 
-return (
-  <Container className="py-4">
-    <div className="mb-4 text-center">
-      <input
-        type="text"
-        placeholder="Search houses..."
-        className="form-control w-50 mx-auto"
-        value={searchTerm}
-        onChange={e => setSearchTerm(e.target.value.toLowerCase())}
-      />
-    </div>
+      {sortedRegions.map(([region, houses]) => {
+        const filteredHouses = houses.filter(house =>
+          house.name.toLowerCase().includes(searchTerm)
+        );
 
-    {sortedRegions.map(([region, houses]) => {
-      const filteredHouses = houses.filter(house =>
-        house.name.toLowerCase().includes(searchTerm)
-      );
+        if (filteredHouses.length === 0) return null;
 
-      if (filteredHouses.length === 0) return null;
+        return (
+          <div key={region} className="mb-5">
+            <RegionDivider region={region} />
+            <Row xs={2} sm={2} md={3} lg={4} className="g-4">
+              {filteredHouses
+                .slice(0, visibleCounts[region] || PAGE_SIZE)
+                .map((house, idx) => {
+                  const isFavorite = isFavoriteHouse(house.name);
 
-      return (
-        <div key={region} className="mb-5">
-          <RegionDivider region={region} />
-          <Row xs={1} sm={2} md={3} lg={4} className="g-4">
-            {filteredHouses.slice(0, PAGE_SIZE).map((house, idx) => (
-              <Col key={idx} className="d-flex">
-                <Card className="h-100 w-100">
-                  <Card.Body className="house-card-body">
-                    <Card.Title>{house.name}</Card.Title>
-                    <Card.Text>
-                      <strong>Region:</strong> {house.region || 'No region'}<br/>
-                      <strong>Words:</strong> {house.words || 'No motto'}<br/>
-                      <strong>Seats:</strong> {house.seats.filter(Boolean).join(', ') || 'No seat'}
-                    </Card.Text>
-                  </Card.Body>
-                  <Card.Footer>
-                    <small className="text-muted">
-                      Coat of Arms: {house.coatOfArms || 'Not specified'}
-                    </small>
-                  </Card.Footer>
-                </Card>
-              </Col>
-            ))}
-          </Row>
+                  return (
+                    <Col key={idx} className="d-flex">
+                      <Card className="h-100 w-100 position-relative house-card">
+<FavoriteButton item={{ ...house, image: getHouseImage(house) }} type="house" />
 
-          {filteredHouses.length > PAGE_SIZE && (
-            <div className="text-center mt-3">
-              <Button variant="dark" onClick={() => loadMore(region)}>
-                Load more...
-              </Button>
-            </div>
-          )}
-        </div>
-      );
-    })}
-  </Container>
-);
+                        <Card.Body className="house-card-body">
+                          <Card.Title>{house.name}</Card.Title>
+                          <Card.Text>
+                            <strong>Region:</strong> {house.region || 'No region'}
+                            <br />
+                            <strong>Words:</strong> {house.words || 'No motto'}
+                            <br />
+                            <strong>Seats:</strong>{' '}
+                            {house.seats.filter(Boolean).join(', ') || 'No seat'}
+                          </Card.Text>
+                        </Card.Body>
+                        <Card.Footer>
+                          <small className="text-muted">
+                            Coat of Arms: {house.coatOfArms || 'Not specified'}
+                          </small>
+                        </Card.Footer>
+                      </Card>
+                    </Col>
+                  );
+                })}
+            </Row>
+
+            {(visibleCounts[region] || PAGE_SIZE) < filteredHouses.length && (
+              <div className="text-center mt-3">
+                <Button variant="dark" onClick={() => loadMore(region)}>
+                  Load more...
+                </Button>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </Container>
+  );
 };
 
 export default OtherHousesByRegion;

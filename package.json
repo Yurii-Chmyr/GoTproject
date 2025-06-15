@@ -2,7 +2,7 @@
   "name": "got",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Yurii-Chmyr.github.io/GoTproject",
+  "homepage": "https://yurii-Chmyr.github.io/GoTproject",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^11.2.7",

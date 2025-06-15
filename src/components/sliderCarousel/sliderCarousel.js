@@ -13,7 +13,7 @@ import './sliderCarouselStyles.scss';
 
 function SliderCarousel() {
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+    <div style={{ maxWidth: '1200px', margin: '0 auto', marginBottom: '80px' }}>
     <Carousel style={{ maxHeight: '500px' }}>
       <Carousel.Item>
         <img src={gotImage2} className="d-block w-100 carousel-image" style={{ maxHeight: '500px', objectFit: 'cover' }} text="First slide" alt="slide" />

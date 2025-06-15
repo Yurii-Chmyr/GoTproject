@@ -16,15 +16,9 @@ const AppFooter = () => {
           (с) Based on Ice and Fire API
         </div>
 
-        <Link className="navbar-brand" to="/">
-        <div className="text-center">
-          <img
-            src={Logo}
-            alt="logo"
-            style={{ height: '60px' }}
-          />
-        </div>
-        </Link>
+  <Link className="navbar-brand" to="/">
+    <img src={Logo} alt="logo" className="app-logo" />
+  </Link>
 
         
         <div className="text-light small">

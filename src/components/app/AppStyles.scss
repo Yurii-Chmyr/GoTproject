@@ -56,10 +56,31 @@ footer {
 }
 
 .section-divider span {
-    text-align: center;
-  background: #212529; /* колір фону сайту */
-  padding: 10px 400px;
+  text-align: center;
+  background: #212529;
+  padding: 10px 150px; /* базовий паддінг для мобільних */
   color: white;
   border-radius: 10px;
-  
+}
+
+@media (min-width: 992px) {
+  .section-divider span {
+    padding: 10px 400px; /* великий паддінг для десктопа */
+  }
+}
+
+.app-logo {
+  max-height: 40px; /* менше для мобільних */
+  height: auto;
+  width: auto;
+  margin-right: 10px;
+}
+
+
+
+/* Зробимо логотип більшим на десктопі */
+@media (min-width: 992px) {
+  .app-logo {
+    max-height: 80px;
+  }
 }

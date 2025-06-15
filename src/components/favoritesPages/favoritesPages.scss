@@ -1,0 +1,16 @@
+.btn-outline-danger {
+  color: black !important;
+  border-color: white !important;
+  background-color: white !important;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover,
+.btn-outline-danger:focus,
+.btn-outline-danger:active,
+.btn-outline-danger.active {
+  color: white !important;
+  background-color: #dc3545 !important; /* bootstrap red */
+  border-color: #dc3545 !important;
+  box-shadow: none !important;
+}

@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import ThronesService from '../../services/ThronesService'; // Шлях до твого сервісу
 import { getHouseImage } from '../housesImages/HousesImages';
+import DataContext from '../../services/DataContext';
 import './mainHousesStyles.scss';
+import FavoriteButton from '../favButton/FavButton';
 
+import { useFavorites } from '../../services/FavoritesContext'; 
 
-const mainHousesFullNames = [
-  'House Stark of Winterfell',
+const mainHousesFullNames = [ 'House Stark of Winterfell',
   'House Lannister of Casterly Rock',
   'House Baratheon of Storm\'s End',
   'House Targaryen of King\'s Landing',
@@ -18,41 +19,28 @@ const mainHousesFullNames = [
   'House Bolton of the Dreadfort',
   'House Frey of the Twins',
   'House Mormont of Bear Island',
-  'House Royce of Runestone'
-  
-];
+  'House Royce of Runestone' ];
 
 const MainHousesCard = () => {
-  const [mainHouses, setMainHouses] = useState([]);
-  const service = new ThronesService();
+  const { houses, loading } = useContext(DataContext);
+  const { isFavoriteHouse, toggleFavoriteHouse } = useFavorites(); 
 
-  useEffect(() => {
-    const fetchHouses = async () => {
-      try {
-        const all = await service.getAllHouses();
-        const filtered = all.filter(house =>
-          mainHousesFullNames.includes(house.name)
-        );
-        setMainHouses(filtered);
-      } catch (err) {
-        console.error('Cant load houses', err);
-      }
-    };
+  if (loading) return <div className="text-center my-5">Loading houses...</div>;
 
-    fetchHouses();
-  }, []);
+  const mainHouses = houses.filter(house =>
+    mainHousesFullNames.includes(house.name)
+  );
+
 
   return (
     <Container className="py-4">
-      <Row xs={1} sm={2} md={3} lg={4} className="g-4">
+      <Row xs={2} sm={2} md={3} lg={4} className="g-4">
         {mainHouses.map((house, idx) => (
           <Col key={idx} className="d-flex">
-            <Card className="house-card w-100 pulsing-gold-border">
-              <Card.Img
-                variant="top"
-                src={getHouseImage(house)}
-                className="house-card-img"
-              />
+            <Card className="house-card w-100 pulsing-gold-border" style={{ position: 'relative' }}>
+<FavoriteButton item={{ ...house, image: getHouseImage(house) }} type="house" />
+
+              <Card.Img variant="top" src={getHouseImage(house)} className="house-card-img" />
               <Card.Body className="house-card-body">
                 <Card.Title className="house-card-title">{house.name}</Card.Title>
                 <Card.Text>
