@@ -1,17 +1,27 @@
 {
   "files": {
-    "main.css": "/GoTproject/static/css/main.348c3d86.css",
-    "main.js": "/GoTproject/static/js/main.7d506896.js",
+    "main.css": "/GoTproject/static/css/main.d50a5c67.css",
+    "main.js": "/GoTproject/static/js/main.882c4664.js",
     "static/media/Background.jpg": "/GoTproject/static/media/Background.72bf18bceffbc49bdfee.jpg",
     "static/media/nymeria.png": "/GoTproject/static/media/nymeria.816d18a80578ef07ccfd.png",
     "static/media/xaro.png": "/GoTproject/static/media/xaro.b9b0a6f1760bfb23a6aa.png",
     "static/media/alliser.png": "/GoTproject/static/media/alliser.f3e3f85be310742fbbc8.png",
     "static/media/podrick.png": "/GoTproject/static/media/podrick.4d9624f289bd668ee747.png",
+    "static/media/ep6.jpg": "/GoTproject/static/media/ep6.4e939fcf636cb70f9cf6.jpg",
+    "static/media/ep5.jpg": "/GoTproject/static/media/ep5.09c4d2c74acaeaf1a1ec.jpg",
+    "static/media/ep7.jpg": "/GoTproject/static/media/ep7.fc360023ec156d5b0097.jpg",
+    "static/media/ep2.jpg": "/GoTproject/static/media/ep2.1b1f1449ab66dea13d00.jpg",
     "static/media/season7pic.jpg": "/GoTproject/static/media/season7pic.dd8ffc00327aaddfbdb7.jpg",
     "static/media/myrcella.png": "/GoTproject/static/media/myrcella.a19bfe079263387a187d.png",
+    "static/media/ep8.jpg": "/GoTproject/static/media/ep8.7f2c8d1665ab3a2e9af3.jpg",
     "static/media/shae.png": "/GoTproject/static/media/shae.3a88b729399c7c473440.png",
+    "static/media/ep10.jpg": "/GoTproject/static/media/ep10.f3a638a4b2c54c823db4.jpg",
     "static/media/marillion.png": "/GoTproject/static/media/marillion.3432b216343540a8f21a.png",
+    "static/media/ep4.jpg": "/GoTproject/static/media/ep4.024cc473a8af04e8ae8d.jpg",
+    "static/media/ep9.jpg": "/GoTproject/static/media/ep9.085696509cdc1f7167ca.jpg",
     "static/media/beric.png": "/GoTproject/static/media/beric.4356da5e5c8cb5ff28a5.png",
+    "static/media/ep3.jpg": "/GoTproject/static/media/ep3.7fb30fbf2a2d40ab0d12.jpg",
+    "static/media/ep1.jpg": "/GoTproject/static/media/ep1.1a0182f4067a7ab17b26.jpg",
     "static/media/eddison.png": "/GoTproject/static/media/eddison.28ff9c1831ac3983f22f.png",
     "static/media/qotho.png": "/GoTproject/static/media/qotho.220c73831ef6bce8f0b0.png",
     "static/media/robb.png": "/GoTproject/static/media/robb.bd0c51167ebb50cc62d1.png",
@@ -229,11 +239,11 @@
     "static/media/masha.png": "/GoTproject/static/media/masha.73f7d6e2d4e17f6b3afc.png",
     "static/media/bryndenRivers.png": "/GoTproject/static/media/bryndenRivers.da3980827bf4fb20754f.png",
     "index.html": "/GoTproject/index.html",
-    "main.348c3d86.css.map": "/GoTproject/static/css/main.348c3d86.css.map",
-    "main.7d506896.js.map": "/GoTproject/static/js/main.7d506896.js.map"
+    "main.d50a5c67.css.map": "/GoTproject/static/css/main.d50a5c67.css.map",
+    "main.882c4664.js.map": "/GoTproject/static/js/main.882c4664.js.map"
   },
   "entrypoints": [
-    "static/css/main.348c3d86.css",
-    "static/js/main.7d506896.js"
+    "static/css/main.d50a5c67.css",
+    "static/js/main.882c4664.js"
   ]
 }
