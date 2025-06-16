@@ -1,12 +1,12 @@
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import gotImage1 from '../../resources/img/slidergot1.jpg';
-import gotImage2 from '../../resources/img/slidergot2.jpg'
-import gotImage3 from '../../resources/img/slidergot3.jpg'
-import gotImage4 from '../../resources/img/slidergot4.jpg'
-import gotImage5 from '../../resources/img/slidergot5.jpg'
-import gotImage6 from '../../resources/img/slidergot6.jpg'
-import gotImage7 from '../../resources/img/slidergot7.jpg'
+import gotImage1 from '../../resources/img/slider/slidergot1.jpg';
+import gotImage2 from '../../resources/img/slider/slidergot2.jpg'
+import gotImage3 from '../../resources/img/slider/slidergot3.jpg'
+import gotImage4 from '../../resources/img/slider/slidergot4.jpg'
+import gotImage5 from '../../resources/img/slider/slidergot5.jpg'
+import gotImage6 from '../../resources/img/slider/slidergot6.jpg'
+import gotImage7 from '../../resources/img/slider/slidergot7.jpg'
 import './sliderCarouselStyles.scss';
 
 

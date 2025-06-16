@@ -4,3 +4,14 @@
   flex-direction: column;
   justify-content: flex-end; /* або center / space-between */
 }
+
+.character-list-wrapper {
+  min-height: 600px; // або більше — залежно від середнього об'єму карток
+  transition: min-height 0.3s ease;
+}
+
+.filter-active {
+  background-color: white !important;
+  color: black !important;
+  border-color: white !important;
+}

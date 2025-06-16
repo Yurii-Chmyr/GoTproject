@@ -25,7 +25,7 @@ const FavoritesPage = () => {
     return (
       <>
         <div className="d-flex justify-content-between align-items-center my-3">
-          <h4 className="text-white">Favorite Characters</h4>
+          <h4 className="text-white">Favorite Characters: {favoriteCharacters.length}</h4>
           <Button variant="outline-danger" className="btn-white-outline" onClick={clearFavoriteCharacters}>
             Clear all
           </Button>
@@ -45,7 +45,7 @@ const FavoritesPage = () => {
                   <ListGroup.Item>Actor: {char.playedBy?.[0] || 'Undefined'}</ListGroup.Item>
                 </ListGroup>
                 <Card.Footer>
-                  <Button variant="outline-danger" size="sm" onClick={() => removeFavoriteCharacter(char.url)}>
+                  <Button variant="outline-danger" className="remove-btn d-block mx-auto" size="sm" onClick={() => removeFavoriteCharacter(char.url)}>
                     Remove
                   </Button>
                 </Card.Footer>
@@ -63,7 +63,7 @@ const FavoritesPage = () => {
     return (
       <>
         <div className="d-flex justify-content-between align-items-center my-4">
-          <h4 className="text-white">Favorite Houses</h4>
+          <h4 className="text-white">Favorite Houses: {favoriteHouses.length}</h4>
           <Button variant="outline-danger" className="btn-white-outline" onClick={clearFavoriteHouses}>
             Clear all
           </Button>
@@ -97,14 +97,17 @@ const FavoritesPage = () => {
                     <strong>Seats:</strong> {house.seats?.filter(Boolean).join(', ') || 'No seat'}
                   </Card.Text>
                 </Card.Body>
-                <Card.Footer className="d-flex justify-content-between align-items-center">
+                <Card.Footer className="align-items-center">
                   <small className="text-muted">
                     Coat of Arms: {house.coatOfArms || 'Not specified'}
                   </small>
-                  <Button variant="outline-danger" size="sm" onClick={() => removeFavoriteHouse(house.url)}>
+                  <span className="text-muted">
+                <Button variant="outline-danger" className="remove-btn d-block mx-auto mt-1" size="sm" onClick={() => removeFavoriteHouse(house.url)}>
                     Remove
                   </Button>
+                  </span>
                 </Card.Footer>
+
               </Card>
             </Col>
           ))}

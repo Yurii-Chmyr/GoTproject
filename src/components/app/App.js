@@ -1,5 +1,5 @@
 import AppFooter from "../appFooter/AppFooter";
-import Logo from '../../resources/img/Logo.png';
+import Logo from '../../resources/img/etc/Logo.png';
 import { FaHeart } from 'react-icons/fa';
 
 
@@ -15,9 +15,12 @@ import { FavoritesProvider } from "../../services/FavoritesContext";
 import { Button } from 'react-bootstrap';
 import FavoritesPage from "../favoritesPages/FavoritesPages";
 import FavoriteNavButton from "../favNavButton/FavNavButton";
+import ScrollPages from "../scrollPages/scrollPages";
+import { useRef } from 'react';
 
 const App = () => {
-    return (
+  const footerRef = useRef(null);  
+  return (
         <DataProvider>
            <FavoritesProvider>
         <Router basename="/GoTproject">
@@ -40,22 +43,18 @@ const App = () => {
 
                 
                 <main className="container-fluid px-0">
+                    <ScrollPages></ScrollPages>
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/characters" element={<Characters />} />
                         <Route path="/houses" element={<Houses />} />
                         <Route path="/favorites" element={<FavoritesPage />} />
                     </Routes>
-                    <UpScroll></UpScroll>
-                    <FavoriteNavButton></FavoriteNavButton>
-                    {/* <Link to="/favorites">
-                      <Button variant="light" className="position-fixed bottom-0 start-0 m-3">
-                        💖
-                        </Button>
-                            </Link> */}
+                    <UpScroll footerRef={footerRef}></UpScroll>
+                    <FavoriteNavButton footerRef={footerRef}></FavoriteNavButton>
                 </main>
 
-                <AppFooter />
+                <AppFooter footerRef={footerRef} />
             </div>
         </Router>
         </FavoritesProvider>

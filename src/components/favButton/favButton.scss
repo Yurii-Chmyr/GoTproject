@@ -3,36 +3,36 @@
   top: 10px;
   right: 10px;
   z-index: 2;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   width: 36px;
   height: 36px;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  svg {
-    color: #444;
-    font-size: 18px;
-    transition: color 0.3s ease;
+.heart-icon {
+  color: #444;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.heart-icon.active {
+  color: #e63946;
+}
+
+.heart-icon.bounce {
+  animation: bounce 0.3s ease;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
   }
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 1);
-
-    svg {
-      color: #e63946;
-    }
-  }
-
-  &.active {
-    svg {
-      color: #e63946;
-    }
+  50% {
+    transform: translateY(-12px);
   }
 }

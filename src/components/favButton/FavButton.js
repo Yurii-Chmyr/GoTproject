@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { useFavorites } from '../../services/FavoritesContext';
-import './favButton.scss';
+import './favButton.css';
 
 const FavoriteButton = ({ item, type }) => {
   const {
@@ -11,30 +11,43 @@ const FavoriteButton = ({ item, type }) => {
     isFavoriteHouse,
   } = useFavorites();
 
-  const [isFavorite, setIsFavorite] = useState(false);
+  const isFavorite =
+    type === 'character'
+      ? isFavoriteCharacter(item)
+      : isFavoriteHouse(item);
 
-  useEffect(() => {
-    if (type === 'character') {
-      setIsFavorite(isFavoriteCharacter(item));
-    } else {
-      setIsFavorite(isFavoriteHouse(item));
-    }
-  }, [item, type, isFavoriteCharacter, isFavoriteHouse]);
+  const [isAnimating, setIsAnimating] = useState(false);
 
-  const toggleFavorite = () => {
+  const handleClick = () => {
     if (type === 'character') {
       toggleFavoriteCharacter(item);
     } else {
       toggleFavoriteHouse(item);
     }
+
+    // Запускаємо анімацію
+    setIsAnimating(true);
   };
 
+  // Коли анімація завершується - вимикаємо прапорець
+  useEffect(() => {
+    if (isAnimating) {
+      const timer = setTimeout(() => setIsAnimating(false), 300);
+      return () => clearTimeout(timer);
+    }
+  }, [isAnimating]);
+
   return (
-    <div className={`favorite-icon ${isFavorite ? 'active' : ''}`} 
-    onClick={toggleFavorite}
-    aria-label="Toggle favorite"
+    <div
+      className="favorite-icon"
+      onClick={handleClick}
+      title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
     >
-      <FaHeart />
+      <FaHeart
+        className={`heart-icon ${isFavorite ? 'active' : ''} ${
+          isAnimating ? 'bounce' : ''
+        }`}
+      />
     </div>
   );
 };
