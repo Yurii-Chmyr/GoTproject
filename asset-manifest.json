@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/GoTproject/static/css/main.d50a5c67.css",
-    "main.js": "/GoTproject/static/js/main.882c4664.js",
+    "main.css": "/GoTproject/static/css/main.60cc794d.css",
+    "main.js": "/GoTproject/static/js/main.68ebb89c.js",
     "static/media/Background.jpg": "/GoTproject/static/media/Background.72bf18bceffbc49bdfee.jpg",
     "static/media/nymeria.png": "/GoTproject/static/media/nymeria.816d18a80578ef07ccfd.png",
     "static/media/xaro.png": "/GoTproject/static/media/xaro.b9b0a6f1760bfb23a6aa.png",
@@ -171,6 +171,7 @@
     "static/media/jaqen.png": "/GoTproject/static/media/jaqen.2a33a9cb6a1c556be47f.png",
     "static/media/arryn.png": "/GoTproject/static/media/arryn.64797e46665c3b9189c3.png",
     "static/media/mordane.png": "/GoTproject/static/media/mordane.21f516c41d88f2509202.png",
+    "static/media/404.jpg": "/GoTproject/static/media/404.facd148a2b1ebc526768.jpg",
     "static/media/yoren.png": "/GoTproject/static/media/yoren.1bb74e02a3801ccf8a50.png",
     "static/media/lysa.png": "/GoTproject/static/media/lysa.d4c9d32f7fe4ebc0c18b.png",
     "static/media/walder2.png": "/GoTproject/static/media/walder2.bedf760165ede8caf3c1.png",
@@ -239,11 +240,11 @@
     "static/media/masha.png": "/GoTproject/static/media/masha.73f7d6e2d4e17f6b3afc.png",
     "static/media/bryndenRivers.png": "/GoTproject/static/media/bryndenRivers.da3980827bf4fb20754f.png",
     "index.html": "/GoTproject/index.html",
-    "main.d50a5c67.css.map": "/GoTproject/static/css/main.d50a5c67.css.map",
-    "main.882c4664.js.map": "/GoTproject/static/js/main.882c4664.js.map"
+    "main.60cc794d.css.map": "/GoTproject/static/css/main.60cc794d.css.map",
+    "main.68ebb89c.js.map": "/GoTproject/static/js/main.68ebb89c.js.map"
   },
   "entrypoints": [
-    "static/css/main.d50a5c67.css",
-    "static/js/main.882c4664.js"
+    "static/css/main.60cc794d.css",
+    "static/js/main.68ebb89c.js"
   ]
 }
