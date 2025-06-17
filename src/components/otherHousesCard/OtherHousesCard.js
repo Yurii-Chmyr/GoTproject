@@ -5,6 +5,8 @@ import RegionDivider from '../regionDivider/RegionDivider';
 import { useFavorites } from '../../services/FavoritesContext';
 import FavoriteButton from '../favButton/FavButton';
 import { getHouseImage } from '../housesImages/HousesImages';
+import { motion } from 'framer-motion';
+
 
 const EXCLUDE_HOUSES = [
   'House Stark of Winterfell',
@@ -73,6 +75,11 @@ const OtherHousesByRegion = () => {
   });
 
   return (
+          <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+          >
     <Container className="py-4">
       <div className="mb-4 text-center">
         <input
@@ -102,9 +109,16 @@ const OtherHousesByRegion = () => {
 
                   return (
                     <Col key={idx} className="d-flex">
-                      <Card className="h-100 w-100 position-relative house-card">
-<FavoriteButton item={{ ...house, image: getHouseImage(house) }} type="house" />
-
+                      <motion.div
+                        key={house.name} // ключ на рівні motion, щоб перезапускалась анімація
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3 }}
+                        layout 
+                        className="w-100 h-100 d-flex"
+                      >
+                      <Card className="h-100 w-100 position-relative house-card"> 
+                      <FavoriteButton item={{ ...house, image: getHouseImage(house) }} type="house" />
                         <Card.Body className="house-card-body">
                           <Card.Title>{house.name}</Card.Title>
                           <Card.Text>
@@ -122,6 +136,7 @@ const OtherHousesByRegion = () => {
                           </small>
                         </Card.Footer>
                       </Card>
+                      </motion.div>
                     </Col>
                   );
                 })}
@@ -138,6 +153,7 @@ const OtherHousesByRegion = () => {
         );
       })}
     </Container>
+    </motion.div>
   );
 };
 

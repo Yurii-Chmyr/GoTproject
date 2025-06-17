@@ -10,6 +10,9 @@ import DataContext from '../../services/DataContext';
 import './otherCharactersStyle.scss';
 import FavoriteButton from '../favButton/FavButton';
 import { useFavorites } from '../../services/FavoritesContext';
+import { motion } from 'framer-motion';
+import ImageLoading from '../imageLoading/ImageLoading';
+
 
 const OtherCharactersCard = () => {
   const { characters, loading } = useContext(DataContext);
@@ -117,6 +120,11 @@ const OtherCharactersCard = () => {
     : visibleCharacters.length < filteredCharacters.length;
 
   return (
+    <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+      >
     <Container className="py-4">
       <div className="mb-4 text-center">
         <input
@@ -173,9 +181,16 @@ const OtherCharactersCard = () => {
                 <Row xs={2} sm={2} md={3} lg={4} className="g-4 align-items-stretch">
                   {visibleChars.map((char, i) => (
                     <Col key={i} className="d-flex">
+                      <motion.div
+                          initial={{ opacity: 0, y: 50 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5 }}
+                          layout
+                          className="w-100"
+                      >
                       <Card className="h-100 w-100 d-flex flex-column" style={{ position: 'relative' }}>
                         <FavoriteButton item={{ ...char, image: getCharacterImage(char) }} type="character" />
-                        <Card.Img variant="top" src={getCharacterImage(char)} />
+                        <ImageLoading src={getCharacterImage(char)} alt={char.name || 'Unnamed'} />
                         <Card.Body className="card-body-fixed">
                           <Card.Title>{char.name}</Card.Title>
                           <Card.Text>{char.titles?.[0] || 'No title'}</Card.Text>
@@ -186,6 +201,7 @@ const OtherCharactersCard = () => {
                           <ListGroup.Item>Actor: {char.playedBy?.[0] || 'Undefined'}</ListGroup.Item>
                         </ListGroup>
                       </Card>
+                      </motion.div>
                     </Col>
                   ))}
                 </Row>
@@ -197,6 +213,13 @@ const OtherCharactersCard = () => {
             {visibleCharacters.length > 0 ? (
               visibleCharacters.map((char, idx) => (
                 <Col key={idx} className="d-flex">
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    layout
+                    className="w-100"
+                  >
                   <Card className="h-100 w-100 d-flex flex-column" style={{ position: 'relative' }}>
                     <FavoriteButton item={{ ...char, image: getCharacterImage(char) }} type="character" />
                     <Card.Img variant="top" src={getCharacterImage(char)} />
@@ -210,6 +233,7 @@ const OtherCharactersCard = () => {
                       <ListGroup.Item>Actor: {char.playedBy?.[0] || 'Undefined'}</ListGroup.Item>
                     </ListGroup>
                   </Card>
+                  </motion.div>
                 </Col>
               ))
             ) : (
@@ -228,6 +252,7 @@ const OtherCharactersCard = () => {
         </div>
       )} */}
     </Container>
+    </motion.div>
   );
 };
 

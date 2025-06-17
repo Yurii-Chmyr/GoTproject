@@ -2,6 +2,8 @@ import { Container, Row, Col, Image } from 'react-bootstrap';
 import SeriesList from '../seriesList/SeriesList';
 import { useState, useRef, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
+import { motion } from 'framer-motion';
+
 
 import './SeasonsDescription.scss';
 
@@ -208,6 +210,11 @@ const SeasonsDescription = () => {
   }
 
   return (
+      <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+      >
     <Container className="seasons-description-container">
       {seasonsData.map((season, index) => (
         <Row
@@ -238,6 +245,7 @@ const SeasonsDescription = () => {
         </Row>
       ))}
     </Container>
+    </motion.div>
   );
 };
 

@@ -4,6 +4,9 @@ import { getHouseImage } from '../housesImages/HousesImages';
 import DataContext from '../../services/DataContext';
 import './mainHousesStyles.scss';
 import FavoriteButton from '../favButton/FavButton';
+import { motion } from 'framer-motion';
+import ImageLoading from '../imageLoading/ImageLoading';
+
 
 import { useFavorites } from '../../services/FavoritesContext'; 
 
@@ -33,14 +36,18 @@ const MainHousesCard = () => {
 
 
   return (
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+>
     <Container className="py-4">
       <Row xs={2} sm={2} md={3} lg={4} className="g-4">
         {mainHouses.map((house, idx) => (
           <Col key={idx} className="d-flex">
             <Card className="house-card w-100 pulsing-gold-border" style={{ position: 'relative' }}>
-<FavoriteButton item={{ ...house, image: getHouseImage(house) }} type="house" />
-
-              <Card.Img variant="top" src={getHouseImage(house)} className="house-card-img" />
+              <FavoriteButton item={{ ...house, image: getHouseImage(house) }} type="house" />
+              <ImageLoading className="house-card-img" src={getHouseImage(house)} alt={house.name || 'Unnamed'} />
               <Card.Body className="house-card-body">
                 <Card.Title className="house-card-title">{house.name}</Card.Title>
                 <Card.Text>
@@ -54,6 +61,7 @@ const MainHousesCard = () => {
         ))}
       </Row>
     </Container>
+    </motion.div>
   );
 };
 

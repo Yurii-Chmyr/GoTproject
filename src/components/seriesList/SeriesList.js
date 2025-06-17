@@ -1,7 +1,15 @@
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import { motion } from 'framer-motion';
+
+
 
 const SeriesList = ({ episodes, seasonName, onBack }) => {
   return (
+  <motion.div
+  initial={{ opacity: 0, y: 50 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+>
     <Container className="seasons-description-container">
       <div className="mb-4">
         <Button variant="dark" onClick={onBack}>
@@ -33,7 +41,9 @@ const SeriesList = ({ episodes, seasonName, onBack }) => {
         </Row>
       ))}
     </Container>
+    </motion.div>
   );
 };
+
 
 export default SeriesList;
