@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { useFavorites } from '../../services/FavoritesContext';
+import { toast } from 'react-toastify';
 import './favButton.css';
 
 const FavoriteButton = ({ item, type }) => {
@@ -19,17 +20,39 @@ const FavoriteButton = ({ item, type }) => {
   const [isAnimating, setIsAnimating] = useState(false);
 
   const handleClick = () => {
-    if (type === 'character') {
-      toggleFavoriteCharacter(item);
+  let message = '';
+  const name = item.name || item.aliases?.[0] || 'Unnamed';
+
+  if (type === 'character') {
+    if (isFavoriteCharacter(item)) {
+      message = `Removed ${name} from favorites`;
     } else {
-      toggleFavoriteHouse(item);
+      message = `Added ${name} to favorites`;
     }
+    toggleFavoriteCharacter(item);
+  } else {
+    if (isFavoriteHouse(item)) {
+      message = `Removed ${name} from favorites`;
+    } else {
+      message = `Added ${name} to favorites`;
+    }
+    toggleFavoriteHouse(item);
+  }
 
-    // Запускаємо анімацію
-    setIsAnimating(true);
-  };
+  const position = window.innerWidth <= 768 ? 'top-center' : 'bottom-center';
 
-  // Коли анімація завершується - вимикаємо прапорець
+  toast(message, { 
+    autoClose: 1500, 
+    position: position,
+    className: 'custom-toast',
+    bodyClassName: 'custom-toast-body', 
+  });
+
+  
+  setIsAnimating(true);
+};
+
+  
   useEffect(() => {
     if (isAnimating) {
       const timer = setTimeout(() => setIsAnimating(false), 300);

@@ -58,10 +58,22 @@ footer {
 .section-divider span {
   text-align: center;
   background: #212529;
-  padding: 10px 150px; /* базовий паддінг для мобільних */
+  padding: 10px 150px; 
   color: white;
   border-radius: 10px;
 }
+
+
+.my-toast-container {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 100% !important;
+  max-width: 600px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+
 
 @media (min-width: 992px) {
   .section-divider span {

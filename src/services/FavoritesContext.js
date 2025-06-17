@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 const FavoritesContext = createContext();
 
@@ -6,19 +6,16 @@ export const FavoritesProvider = ({ children }) => {
   const [favoriteCharacters, setFavoriteCharacters] = useState([]);
   const [favoriteHouses, setFavoriteHouses] = useState([]);
 
- 
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem('favorites')) || { characters: [], houses: [] };
     setFavoriteCharacters(stored.characters);
     setFavoriteHouses(stored.houses);
   }, []);
 
-  
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify({ characters: favoriteCharacters, houses: favoriteHouses }));
   }, [favoriteCharacters, favoriteHouses]);
 
- 
   const toggleFavoriteCharacter = (char) => {
     setFavoriteCharacters(prev => {
       const exists = prev.find(c => c.url === char.url);
@@ -30,7 +27,6 @@ export const FavoritesProvider = ({ children }) => {
     });
   };
 
-  
   const toggleFavoriteHouse = (house) => {
     setFavoriteHouses(prev => {
       const exists = prev.find(h => h.url === house.url);
@@ -42,27 +38,39 @@ export const FavoritesProvider = ({ children }) => {
     });
   };
 
-  
+  // --- Нові функції додавання без toggle ---
+  const addFavoriteCharacter = (char) => {
+    setFavoriteCharacters(prev => {
+      const exists = prev.find(c => c.url === char.url);
+      if (exists) return prev;
+      return [...prev, char];
+    });
+  };
+
+  const addFavoriteHouse = (house) => {
+    setFavoriteHouses(prev => {
+      const exists = prev.find(h => h.url === house.url);
+      if (exists) return prev;
+      return [...prev, house];
+    });
+  };
+
   const removeFavoriteCharacter = (url) => {
     setFavoriteCharacters(prev => prev.filter(c => c.url !== url));
   };
 
-  
   const removeFavoriteHouse = (url) => {
     setFavoriteHouses(prev => prev.filter(h => h.url !== url));
   };
 
-  
   const clearFavoriteCharacters = () => {
     setFavoriteCharacters([]);
   };
 
-  
   const clearFavoriteHouses = () => {
     setFavoriteHouses([]);
   };
 
-  
   const isFavoriteCharacter = (char) => favoriteCharacters.some(c => c.url === char.url);
   const isFavoriteHouse = (house) => favoriteHouses.some(h => h.url === house.url);
 
@@ -73,6 +81,8 @@ export const FavoritesProvider = ({ children }) => {
         favoriteHouses,
         toggleFavoriteCharacter,
         toggleFavoriteHouse,
+        addFavoriteCharacter,
+        addFavoriteHouse,
         removeFavoriteCharacter,
         removeFavoriteHouse,
         clearFavoriteCharacters,

@@ -18,13 +18,27 @@ import FavoriteNavButton from "../favNavButton/FavNavButton";
 import ScrollPages from "../scrollPages/scrollPages";
 import { useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AppContent = () => {
   const footerRef = useRef(null);
   const location = useLocation();
 
   return (
+    
     <div className="app">
+            <ToastContainer
+        position="bottom-center" 
+        autoClose={3000} 
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        className="my-toast-container"
+      />
       <header className="app__header">
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark w-100 px-0">
           <div className="navbar__inner d-flex align-items-center w-100 px-3">
