@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/GoTproject/static/css/main.632ff970.css",
-    "main.js": "/GoTproject/static/js/main.9321de1f.js",
+    "main.css": "/GoTproject/static/css/main.a4227629.css",
+    "main.js": "/GoTproject/static/js/main.3b498274.js",
     "static/media/Background.jpg": "/GoTproject/static/media/Background.d59bb7c789e2545a1114.jpg",
     "static/media/nymeria.png": "/GoTproject/static/media/nymeria.816d18a80578ef07ccfd.png",
     "static/media/xaro.png": "/GoTproject/static/media/xaro.b9b0a6f1760bfb23a6aa.png",
@@ -240,11 +240,11 @@
     "static/media/masha.png": "/GoTproject/static/media/masha.73f7d6e2d4e17f6b3afc.png",
     "static/media/bryndenRivers.png": "/GoTproject/static/media/bryndenRivers.da3980827bf4fb20754f.png",
     "index.html": "/GoTproject/index.html",
-    "main.632ff970.css.map": "/GoTproject/static/css/main.632ff970.css.map",
-    "main.9321de1f.js.map": "/GoTproject/static/js/main.9321de1f.js.map"
+    "main.a4227629.css.map": "/GoTproject/static/css/main.a4227629.css.map",
+    "main.3b498274.js.map": "/GoTproject/static/js/main.3b498274.js.map"
   },
   "entrypoints": [
-    "static/css/main.632ff970.css",
-    "static/js/main.9321de1f.js"
+    "static/css/main.a4227629.css",
+    "static/js/main.3b498274.js"
   ]
 }
