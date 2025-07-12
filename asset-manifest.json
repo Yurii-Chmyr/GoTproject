@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/GoTproject/static/css/main.2a0a906c.css",
-    "main.js": "/GoTproject/static/js/main.806edd17.js",
+    "main.css": "/GoTproject/static/css/main.f187debe.css",
+    "main.js": "/GoTproject/static/js/main.e5f64292.js",
     "static/media/Background.webp": "/GoTproject/static/media/Background.234e80048d65a83f7a03.webp",
     "static/media/ep7.webp": "/GoTproject/static/media/ep7.6af84629508f7cedd0d0.webp",
     "static/media/ep5.webp": "/GoTproject/static/media/ep5.1576f08b34e5a1bfe7d4.webp",
@@ -241,11 +241,11 @@
     "static/media/galbart.webp": "/GoTproject/static/media/galbart.4b17b557f05484d2692b.webp",
     "static/media/maege.webp": "/GoTproject/static/media/maege.3cf56907cbe8135e74f7.webp",
     "index.html": "/GoTproject/index.html",
-    "main.2a0a906c.css.map": "/GoTproject/static/css/main.2a0a906c.css.map",
-    "main.806edd17.js.map": "/GoTproject/static/js/main.806edd17.js.map"
+    "main.f187debe.css.map": "/GoTproject/static/css/main.f187debe.css.map",
+    "main.e5f64292.js.map": "/GoTproject/static/js/main.e5f64292.js.map"
   },
   "entrypoints": [
-    "static/css/main.2a0a906c.css",
-    "static/js/main.806edd17.js"
+    "static/css/main.f187debe.css",
+    "static/js/main.e5f64292.js"
   ]
 }
