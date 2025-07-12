@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/GoTproject/static/css/main.bade1b5a.css",
-    "main.js": "/GoTproject/static/js/main.c9bce40e.js",
+    "main.js": "/GoTproject/static/js/main.62650720.js",
     "static/media/Background.webp": "/GoTproject/static/media/Background.234e80048d65a83f7a03.webp",
     "static/media/ep7.webp": "/GoTproject/static/media/ep7.6af84629508f7cedd0d0.webp",
     "static/media/ep5.webp": "/GoTproject/static/media/ep5.1576f08b34e5a1bfe7d4.webp",
@@ -242,10 +242,10 @@
     "static/media/maege.webp": "/GoTproject/static/media/maege.3cf56907cbe8135e74f7.webp",
     "index.html": "/GoTproject/index.html",
     "main.bade1b5a.css.map": "/GoTproject/static/css/main.bade1b5a.css.map",
-    "main.c9bce40e.js.map": "/GoTproject/static/js/main.c9bce40e.js.map"
+    "main.62650720.js.map": "/GoTproject/static/js/main.62650720.js.map"
   },
   "entrypoints": [
     "static/css/main.bade1b5a.css",
-    "static/js/main.c9bce40e.js"
+    "static/js/main.62650720.js"
   ]
 }
